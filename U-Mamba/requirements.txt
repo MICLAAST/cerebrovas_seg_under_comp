@@ -1,0 +1,32 @@
+# =============================
+# Install Python 3.11.13
+# =============================
+!sudo apt-get update -y
+!sudo apt-get install -y python3.11 python3.11-dev python3.11-distutils
+
+# =============================
+# Switch default python3 -> python3.11
+# =============================
+!sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
+!sudo update-alternatives --set python3 /usr/bin/python3.11
+
+# =============================
+# Fix pip for Python 3.11
+# =============================
+!wget https://bootstrap.pypa.io/get-pip.py
+!python3 get-pip.py
+# Install essential build tools BEFORE anything else
+# =============================
+!sudo apt-get install -y build-essential python3.11-dev
+!pip install setuptools wheel packaging ninja --upgrade
+# Install PyTorch first
+# =============================
+!pip install torch==2.2.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+!pip install numpy==1.26.4 matplotlib==3.7.5
+!pip install causal-conv1d==1.2.0.post2 --no-build-isolation
+# Install mamba-ssm (use post version if needed)
+# =============================
+!pip install mamba-ssm==1.2.0 --no-build-isolation
+!git clone https://github.com/bowang-lab/U-Mamba.git
+%cd U-Mamba/umamba
+!pip install -e .
