@@ -22,7 +22,7 @@ You can download the pretrained model weights from the following link:
 
 This study uses the publicly available datasets related to cerebrovascular segmentation. Accessible at [MRA RSNA 2025 Competition](https://www.kaggle.com/datasets/shymaaelbana/vessel-mamba-mra), [CTA RSNA 2025 Competition](https://www.kaggle.com/datasets/shymaaelbana/993-ct-topcow/data)
 
-##  Installation
+
 ## Installation
 
 ### Prerequisites
